@@ -1,12 +1,12 @@
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get upgrade -y
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wget
 
 RUN echo "deb http://overviewer.org/debian ./" >> /etc/apt/sources.list
+RUN wget -O - http://overviewer.org/debian/overviewer.gpg.asc | sudo apt-key add -
 RUN apt-get update
-RUN apt-get install -y --force-yes minecraft-overviewer wget
+RUN apt-get install -y --force-yes minecraft-overviewer
 
 ENV VERSION 1.8
 
