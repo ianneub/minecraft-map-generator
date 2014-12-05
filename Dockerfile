@@ -8,7 +8,7 @@ RUN wget -O - http://overviewer.org/debian/overviewer.gpg.asc | sudo apt-key add
 RUN apt-get update
 RUN apt-get install -y --force-yes minecraft-overviewer
 
-ENV VERSION 1.8
+ENV VERSION 1.8.1
 
 RUN wget --no-check-certificate https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/${VERSION}.jar -P ~/.minecraft/versions/${VERSION}/
 RUN wget http://ianneubert.com/temp/minecraft/1.8/textures/Sphax%20PureBDcraft%20128x%20MC18.zip -O /my_texture_pack.zip
